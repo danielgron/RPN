@@ -4,8 +4,9 @@ Reverse Polish Notation - assignment.
 
 Netbeans project is in the RPN folder.
 Jar file is in the root folder.
-In order to run the program the usual command line "java -jar RPN.jar" should work.
-It has been tested with the input provided in the assignment.
+
+In order to run the program the usual command line "java -jar RPN.jar" should work, exit by typing "quit".
+It has been manually tested with the input provided in the assignment and a couple of subtraction/division operations.
 Only thing to note on output is that the line seperation is not exactly as the sample.
 
 For printing out I had to jump through hoops reversing the PathStack.
