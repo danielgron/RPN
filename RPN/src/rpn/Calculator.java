@@ -12,8 +12,11 @@ import java.util.Scanner;
  * @author Daniel
  */
 public class Calculator {
-    PathStack numbers = new PathStack();
-    Scanner s = new Scanner(System.in);
+    private PathStack<Long> numbers = new PathStack();
+    private Scanner s = new Scanner(System.in);
+    private long val1;
+    private long val2;
+    
     
     public void start(){
         String cmd;
@@ -21,16 +24,55 @@ public class Calculator {
         String[] commands = cmd.split(" ");
         
         for (String command : commands) {
-            if (command.equals("*")) mult();
-            else if (command.equals("*")) mult();
-            else if (command.equals("*")) mult();
-            else if (command.equals("*")) mult();
+            switch (command) {
+                case "*":
+                    mult();
+                    break;
+                case "/":
+                    div();
+                    break;
+                case "+":
+                    add();
+                    break;
+                case "-":
+                    sub();
+                    break;
+                default:
+                    put(Long.parseLong(command));
+                    break;
+            }
         }
+        
+        numbers.printData();
     }
         
     }
 
     private void mult() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        val1 = numbers.pop();
+        val2 = numbers.pop();
+        numbers.push(val1*val2);
+    }
+
+    private void div() {
+        val1 = numbers.pop();
+        val2 = numbers.pop();
+        numbers.push(val1/val2);
+    }
+
+    private void add() {
+        val1 = numbers.pop();
+        val2 = numbers.pop();
+        numbers.push(val1+val2);
+    }
+
+    private void sub() {
+        val1 = numbers.pop();
+        val2 = numbers.pop();
+        numbers.push(val1-val2);
+    }
+
+    private void put(long val) {
+        numbers.push(val);
     }
 }

@@ -3,10 +3,11 @@ package rpn;
 
 /**
  *
- * @author Cherry Rose Semeña
+ * @author Daniel
  */
 public interface Path <T> {
     
     T getFirst();
     Path<T> getRest();
+    void printData();
 }
